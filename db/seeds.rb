@@ -12,7 +12,9 @@ recipe_1 = Nokogiri::HTML(open('http://www.simplyrecipes.com/recipes/apple_walnu
 recipe_2 = Nokogiri::HTML(open('http://www.simplyrecipes.com/recipes/artichoke_lemon_dip/'))
 recipe_3 = Nokogiri::HTML(open('http://www.simplyrecipes.com/recipes/asparagus_souffle/'))
 
-a = [recipe_1.css('.recipe-callout h2')[0].text, recipe_2.css('.recipe-callout h2')[0].text, recipe_3.css('.recipe-callout h2')[0].text]
+a = [recipe_1.css('.recipe-callout h2')[0].text, 
+		recipe_2.css('.recipe-callout h2')[0].text, 
+		recipe_3.css('.recipe-callout h2')[0].text]
 
 3.times do |x|
   Recipe.create(:title => a[x])
